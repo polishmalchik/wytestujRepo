@@ -1,0 +1,52 @@
+
+<mat-sidenav-container class="sidenav-container">
+
+  <mat-sidenav color="primary"
+    #drawer
+    class="sidenav"
+    fixedInViewport="false"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async)">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="#"><mat-icon>home</mat-icon>Menu główne</a>
+      <a mat-list-item routerLink="/tests"><mat-icon>check_circle_outline</mat-icon>Testy</a>
+      <a mat-list-item routerLink="/defect"><mat-icon>highlight_off</mat-icon>Defekty</a>
+      <a mat-list-item routerLink="/stats"><mat-icon>assignment</mat-icon>Raporty</a>
+      <a mat-list-item routerLink="/info"><mat-icon>info</mat-icon>Informacje</a>
+      <a mat-list-item routerLink="/feedback"><mat-icon>feedback</mat-icon>Kontakt</a>
+      <a mat-list-item routerLink="/login"><mat-icon>face</mat-icon>Login</a>
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content >
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()">
+
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+
+      <img src="assets/img/logos.png" height="90">
+      <h1><a routerLink="/" routerLinkActive="active">Główna</a></h1>
+      <h1><a routerLink="/tests" routerLinkActive="active">Testy</a></h1>
+      <h1><a routerLink="/defect" routerLinkActive="active">Defekty</a></h1>
+      <h1><a routerLink="/stats" routerLinkActive="active">Raporty</a></h1>
+      <h1><a routerLink="/info" routerLinkActive="active">Informacje</a></h1>
+      <h1><a routerLink="/feedback" routerLinkActive="active">Kontakt</a></h1>
+
+      <span class="spacer"></span>
+
+      <button mat-mini-fab  color="primary">
+        <mat-icon aria label="perm_identity">perm_identity</mat-icon>
+      </button>
+
+      <span><a mat-list-item href="#">Wyloguj</a></span>
+    </mat-toolbar>
+<ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>
